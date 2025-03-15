@@ -1,0 +1,110 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Animasyon */
+@keyframes scroll {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.animate-scroll {
+    animation: scroll 2s ease-in-out infinite;
+}
+
+/* Chat Box Bileşeni */
+@layer components {
+    .chat-box {
+        @apply fixed bottom-16 right-5 w-80 bg-white shadow-2xl rounded-lg transition-all duration-300 transform hover:scale-105 hover:rotate-1 hover:shadow-3xl;
+    }
+    .chat-header {
+        @apply bg-gradient-to-r from-purple-700 to-red-500 text-white p-3 rounded-t-lg flex justify-between items-center transition-all duration-300;
+    }
+    .chat-box:hover .chat-header {
+        @apply bg-gradient-to-r from-red-500 to-purple-700;
+    }
+    .chat-messages {
+        @apply p-3 h-64 overflow-y-auto flex flex-col space-y-2;
+    }
+    .chat-input {
+        @apply flex-1 border p-2 rounded-l-lg shadow-md transition-all duration-300 focus:shadow-lg focus:scale-105;
+    }
+    .send-button {
+        @apply bg-purple-600 text-white px-4 py-2 rounded-r-lg hover:bg-purple-700 transition-all duration-300 transform hover:scale-110 shadow-lg hover:shadow-purple-500;
+    }
+}
+
+/* Seçili Öğe */
+.selected {
+    border: 2px solid #A271F2; 
+    box-shadow: 0 0 10px rgba(162, 113, 242, 0.6);
+}
+
+/* Genel Stil */
+body {
+    background: #eee;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    color: #000;
+    margin: 0;
+    padding: 0;
+}
+
+/* Swiper Tasarımı */
+.swiper {
+    width: 86vw;
+    height: 53vh;
+    border: 1px solid #eee;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    margin-bottom: 100px !important;
+    overflow: hidden !important;
+}
+
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.custom-dropdown { position: relative; display: inline-block; }
+.custom-dropdown button { 
+    padding: 8px; 
+    border: 1px solid #ccc; 
+    background: white; 
+    display: flex; 
+    align-items: center; 
+    gap: 5px; 
+}
+.custom-dropdown ul { 
+    display: none; 
+    position: absolute; 
+    width: 100%; 
+    list-style: none; 
+    padding: 0; 
+    background: white; 
+}
+.custom-dropdown ul li { 
+    padding: 5px; 
+    cursor: pointer; 
+    display: flex; 
+    align-items: center; 
+    gap: 5px; 
+}
+.custom-dropdown ul li:hover { background: #f0f0f0; }
